@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap');
+
+$canvas: #ffffff;
+$accent: #40A0FFFF;
+$success: #60bf7a;
+$danger11: #DC143C11;
+$danger: #DC143CFF;
+$dialogWidth: 480px;
+$mask: #00001055;
+$text: #202030;
+$textMuted: #808090;
+$divider11: #cdcdcd11;
+$divider33: #cdcdcd33;
+$divider80: #cdcdcd80;
+$divider: #cdcdcd;
+$radius: 5px;
+$radiusL: 10px;
+$radiusR: 30px;
+
+* {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.labelled-input {
+  > label {
+    display: block;
+    color: $textMuted;
+    text-transform: uppercase;
+    font-size: small;
+    margin-bottom: 5px;
+  }
+
+  > input, > select, > textarea {
+    display: block;
+    padding: 8px 10px;
+    border: 1px solid $divider;
+    border-radius: $radius;
+    font-weight: bold;
+    width: calc(100% - 20px);
+
+    &:disabled {
+      color: $text;
+      opacity: 1;
+      background: $divider11;
+      border-color: $divider33;
+    }
+  }
+
+  > select {
+    width: 100%;
+  }
+}
+
+.dialog-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  background: $mask;
+}
+
+
+.dialog {
+  background: $canvas;
+  max-width: 480px;
+  margin: 20px;
+  border-radius: $radius;
+  animation: scale-in 300ms ease-in-out 1;
+
+  &.sm {
+    max-width: 320px;
+  }
+}
+
+.alert {
+  background: $divider;
+  padding: 10px;
+  border-radius: $radius;
+  font-weight: bold;
+
+  &.alert-danger {
+    background: $danger11;
+    color: $danger;
+  }
+}
+
+
+.user-form-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.p-normal {
+  padding: 20px;
+}
+
+.p-small {
+  padding: 10px;
+}
+
+.pv-small {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-middle {
+  align-items: center;
+}
+
+.flex-end {
+  justify-content: end;
+}
+
+.flex-fill {
+  flex: 1;
+}
+
+.gap-normal {
+  gap: 10px;
+}
+
+
+.gap-normal-h {
+  column-gap: 10px;
+}
+
+.btn {
+  padding: 8px 10px;
+  background: $divider;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: $radius;
+  min-width: 80px;
+
+  &.btn-accent {
+    background: $accent;
+    color: white;
+  }
+
+  &.btn-success {
+    background: $success;
+    color: white;
+  }
+
+  &.btn-danger {
+    background: $danger;
+    color: white;
+  }
+
+  &.btn-avatar {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: large;
+    border-radius: $radiusR;
+  }
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+
+  .in {
+    margin: 20px;
+  }
+
+  .in-h {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
+.header {
+  background: $text;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 64px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.body {
+  margin-top: 80px;
+}
+
+.user-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.user-card {
+  border: 1px solid $divider80;
+  border-radius: $radius;
+}
+
+.user-card {
+  label {
+    color: $textMuted;
+  }
+
+  > * > div {
+    margin: 5px 0;
+  }
+}
+
+.badge {
+  width: 20px;
+  height: 12px;
+  background: $textMuted;
+  border-radius: $radiusL;
+}
+
+.badge-green {
+  background: $success;
+}
+
+.badge-purple {
+  background: purple;
+}
+
+.badge-orange {
+  background: orange;
+}
+
+hr {
+  background: none;
+  border: none;
+  border-top: 1px solid $divider80;
+}
+
+.pagination {
+  a {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: $divider;
+    margin: 5px;
+    border-radius: $radius;
+    text-decoration: none;
+    font-weight: bold;
+    color: $text;
+
+    &.active {
+      background: $accent;
+      color: white;
+    }
+  }
+}
+
+.err-box {
+  background: $divider80;
+  padding: 20px;
+  max-width: 320px;
+  margin: 30px auto;
+  text-align: center;
+  border-radius: $radius;
+  opacity: 0.5;
+}
+
+.icon-l {
+  font-size: 56px;
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1.0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .user-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .user-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
